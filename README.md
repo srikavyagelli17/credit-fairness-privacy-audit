@@ -36,7 +36,7 @@ All experiment settings, including seeds, the epsilon grid, the F1 threshold rul
 ## Repository map
 
 ```text
-credit-fairness-audit/
+credit-fairness-privacy-audit/
 ├── configs/config.yaml
 ├── src/                  # data, models, audit, reweighing, SHAP, privacy, documents
 ├── templates/            # Jinja templates filled only from results/
