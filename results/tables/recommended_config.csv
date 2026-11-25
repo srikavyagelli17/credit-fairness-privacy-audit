@@ -1,0 +1,2 @@
+epsilon,feature_set,reweighed,roc_auc_mean,eo_difference_sex_mean,reference_auc,reference_eo,meets_auc,meets_eo,meets_rule,reason,fallback
+10.0,full,False,0.7289917660997592,0.06051604445399798,0.7314629843780212,0.061772170158532334,True,True,True,smallest epsilon whose mean ROC-AUC is within tolerance of its paired non-private model and whose mean sex equalized-odds difference is no worse,False

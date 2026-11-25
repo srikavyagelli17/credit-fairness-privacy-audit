@@ -1,0 +1,289 @@
+# All experiment settings for the credit-default fairness audit.
+# The primary seed is seeds[0] and must equal `seed`.
+
+seed: 42
+seeds: [42, 43, 44, 45, 46]
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  clean_filename: clean.parquet
+  cleaning_log_filename: cleaning_log.txt
+  clean_meta_filename: clean_meta.json
+
+data:
+  uci_id: 350
+  cleaning_version: 1
+  expected_rows: 30000
+  expected_default_rate: 0.2212
+  default_rate_tolerance: 0.01
+  fallback_filenames:
+    - default of credit card clients.xls
+    - default of credit card clients.xlsx
+    - default_of_credit_card_clients.csv
+  excel_header_row: 1
+  drop_columns: ["ID", "id", "Unnamed: 0"]
+  education_recode_from: [0, 5, 6]
+  education_recode_to: 4
+  marriage_recode_from: [0]
+  marriage_recode_to: 3
+  sex_labels:
+    1: male
+    2: female
+  education_labels:
+    1: graduate school
+    2: university
+    3: high school
+    4: other
+  marriage_labels:
+    1: married
+    2: single
+    3: other
+  age_bin_edges: [0, 30, 45, 200]
+  age_bin_labels: ["<30", "30-44", "45+"]
+  age_young_threshold: 30
+  age_young_labels:
+    1: young
+    0: older
+  split:
+    train: 0.60
+    validation: 0.20
+    test: 0.20
+  # Canonical column -> aliases. The UCI file uses PAY_0 (there is no PAY_1).
+  aliases:
+    LIMIT_BAL: [X1, limit_bal]
+    SEX: [X2, sex]
+    EDUCATION: [X3, education]
+    MARRIAGE: [X4, marriage]
+    AGE: [X5, age]
+    PAY_0: [X6, pay_0, PAY0]
+    PAY_2: [X7, pay_2]
+    PAY_3: [X8, pay_3]
+    PAY_4: [X9, pay_4]
+    PAY_5: [X10, pay_5]
+    PAY_6: [X11, pay_6]
+    BILL_AMT1: [X12, bill_amt1]
+    BILL_AMT2: [X13, bill_amt2]
+    BILL_AMT3: [X14, bill_amt3]
+    BILL_AMT4: [X15, bill_amt4]
+    BILL_AMT5: [X16, bill_amt5]
+    BILL_AMT6: [X17, bill_amt6]
+    PAY_AMT1: [X18, pay_amt1]
+    PAY_AMT2: [X19, pay_amt2]
+    PAY_AMT3: [X20, pay_amt3]
+    PAY_AMT4: [X21, pay_amt4]
+    PAY_AMT5: [X22, pay_amt5]
+    PAY_AMT6: [X23, pay_amt6]
+    default: [Y, y, "default payment next month", "default.payment.next.month", DEFAULT]
+  pay_status_labels:
+    "-1": pay duly
+    "1": payment delay of 1 month
+    "2": payment delay of 2 months
+    "3": payment delay of 3 months
+    "4": payment delay of 4 months
+    "5": payment delay of 5 months
+    "6": payment delay of 6 months
+    "7": payment delay of 7 months
+    "8": payment delay of 8 months
+  feature_descriptions:
+    LIMIT_BAL: credit limit (NT dollar)
+    SEX: recorded sex code (1 male, 2 female)
+    EDUCATION: education code
+    MARRIAGE: marriage code
+    AGE: age in years
+    PAY_0: September 2005 repayment status
+    PAY_2: August 2005 repayment status
+    PAY_3: July 2005 repayment status
+    PAY_4: June 2005 repayment status
+    PAY_5: May 2005 repayment status
+    PAY_6: April 2005 repayment status
+    BILL_AMT1: September 2005 bill amount (NT dollar)
+    BILL_AMT2: August 2005 bill amount (NT dollar)
+    BILL_AMT3: July 2005 bill amount (NT dollar)
+    BILL_AMT4: June 2005 bill amount (NT dollar)
+    BILL_AMT5: May 2005 bill amount (NT dollar)
+    BILL_AMT6: April 2005 bill amount (NT dollar)
+    PAY_AMT1: September 2005 amount paid (NT dollar)
+    PAY_AMT2: August 2005 amount paid (NT dollar)
+    PAY_AMT3: July 2005 amount paid (NT dollar)
+    PAY_AMT4: June 2005 amount paid (NT dollar)
+    PAY_AMT5: May 2005 amount paid (NT dollar)
+    PAY_AMT6: April 2005 amount paid (NT dollar)
+
+features:
+  categorical: [EDUCATION, MARRIAGE]
+  base_columns:
+    - LIMIT_BAL
+    - SEX
+    - EDUCATION
+    - MARRIAGE
+    - AGE
+    - PAY_0
+    - PAY_2
+    - PAY_3
+    - PAY_4
+    - PAY_5
+    - PAY_6
+    - BILL_AMT1
+    - BILL_AMT2
+    - BILL_AMT3
+    - BILL_AMT4
+    - BILL_AMT5
+    - BILL_AMT6
+    - PAY_AMT1
+    - PAY_AMT2
+    - PAY_AMT3
+    - PAY_AMT4
+    - PAY_AMT5
+    - PAY_AMT6
+  sets:
+    full:
+      drop: []
+    no_sex:
+      drop: [SEX]
+    no_sex_no_age:
+      drop: [SEX, AGE]
+  baseline_sets: [full, no_sex, no_sex_no_age]
+  reweigh_sets: [full, no_sex]
+  dp_sets: [full, no_sex]
+  one_hot:
+    handle_unknown: ignore
+
+models:
+  logistic_key: lr
+  tree_key: tree
+  logistic:
+    C: 1.0
+    solver: lbfgs
+    max_iter: 2000
+    tol: 0.0001
+  tree:
+    n_estimators: 300
+    max_depth: 4
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 1.0
+    reg_lambda: 1.0
+    objective: binary:logistic
+    eval_metric: logloss
+    tree_method: hist
+    n_jobs: 1
+    verbosity: 0
+
+threshold:
+  # f1 maximizes F1 of the default class on the validation set.
+  # fixed uses fixed_value for every model.
+  method: f1
+  fixed_value: 0.5
+  positive_label: 1
+
+fairness:
+  # Favorable decision is approval: predicted non-default (y_hat = 0).
+  # Equalized odds uses default (y = 1) as the positive class.
+  favorable_outcome: approval
+  n_bootstrap: 1000
+  ci_level: 0.95
+  four_fifths: 0.8
+  bootstrap_seed_offset: 1000
+  attributes: [sex_label, age_group, sex_age]
+  group_order:
+    sex_label: [female, male]
+    age_group: ["<30", "30-44", "45+"]
+    age_young_label: [young, older]
+
+reweighing:
+  attributes:
+    sex: sex_label
+    age_young: age_young_label
+    intersection: sex_age_young
+
+explain:
+  background_size: 500
+  eval_size: 400
+  top_k: 10
+  local_top_features: 5
+  waterfall_max_display: 12
+  neighbor_feature_set: no_sex_no_age
+  background_seed_offset: 2000
+  eval_seed_offset: 3000
+
+privacy:
+  epsilons: [0.01, 0.05, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0]
+  include_non_private: true
+  data_norm: 10.0
+  feature_clip: 5.0
+  max_iter: 200
+  tol: 0.0001
+  C: 1.0
+  n_jobs: 1
+  use_opacus: false
+  reweigh_attribute: sex
+  resample_seed_offset: 4000
+  shap_background_size: 200
+  shap_eval_size: 200
+  accountant: fresh_infinite
+  scaler: standard_on_train
+  scaler_limitation: >-
+    StandardScaler means and variances are fit on the private training split
+    before row clipping. Those statistics are not differentially private.
+    After scaling, each coordinate is clipped to the configured feature_clip
+    and each row is clipped so its L2 norm is at most data_norm. data_norm is
+    a fixed configuration value, not a statistic of the sample. The epsilon
+    reported for a diffprivlib model is the epsilon of that model's objective
+    perturbation only. It does not account for the scaler fit. Inside this
+    sweep, reweighing is done by resampling with replacement according to the
+    Kamiran-Calders weights, including for the non-private arm, because
+    diffprivlib ignores sample_weight. Phase 4 is the sample_weight result.
+  opacus:
+    epochs: 5
+    max_grad_norm: 1.0
+    target_delta: 0.00001
+    batch_size: 256
+    learning_rate: 0.05
+
+recommendation:
+  rule: smallest_epsilon_within_auc_tolerance_and_eo_no_worse
+  auc_tolerance: 0.02
+  eo_slack: 0.0
+  auc_metric: roc_auc
+  eo_metric: eo_difference_sex
+  fallback: highest_auc_with_eo_no_worse_else_nonprivate
+
+reporting:
+  primary_model: lr
+  comparison_model: tree
+  primary_feature_set: full
+  unawareness_feature_set: no_sex
+  age_removed_feature_set: no_sex_no_age
+  reweigh_focus_attribute: sex
+  dp_curve_feature_set: no_sex
+  dp_curve_reweighed: false
+  proxy_auc_weak: 0.55
+  proxy_auc_moderate: 0.65
+  round_digits: 4
+
+monitoring:
+  eo_margin: 0.02
+  auc_margin: 0.02
+
+plots:
+  dpi: 300
+  style: whitegrid
+
+numerical:
+  eps: 1.0e-12
+  weight_atol: 1.0e-9
+  fairlearn_atol: 1.0e-6
+  clip_atol: 1.0e-6
+
+fast:
+  n_seeds: 2
+  n_bootstrap: 100
+  epsilons: [0.1, 1.0, 10.0]
+  tree_n_estimators: 80
+  explain_background_size: 80
+  explain_eval_size: 60
+  privacy_max_iter: 80
+  privacy_shap_background_size: 40
+  privacy_shap_eval_size: 40

@@ -1,0 +1,1238 @@
+{
+  "numbers": [
+    {
+      "column": "n",
+      "filters": {
+        "group": "all",
+        "group_type": "overall"
+      },
+      "headline": true,
+      "key": "n_rows",
+      "source": "tables/dataset_summary.csv",
+      "value": 30000
+    },
+    {
+      "column": "default_rate",
+      "filters": {
+        "group": "all",
+        "group_type": "overall"
+      },
+      "headline": true,
+      "key": "default_rate",
+      "source": "tables/dataset_summary.csv",
+      "value": 0.2212
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "female",
+        "group_type": "sex"
+      },
+      "headline": true,
+      "key": "n_female",
+      "source": "tables/dataset_summary.csv",
+      "value": 18112
+    },
+    {
+      "column": "default_rate",
+      "filters": {
+        "group": "female",
+        "group_type": "sex"
+      },
+      "headline": true,
+      "key": "rate_female",
+      "source": "tables/dataset_summary.csv",
+      "value": 0.20776280918727916
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "male",
+        "group_type": "sex"
+      },
+      "headline": true,
+      "key": "n_male",
+      "source": "tables/dataset_summary.csv",
+      "value": 11888
+    },
+    {
+      "column": "default_rate",
+      "filters": {
+        "group": "male",
+        "group_type": "sex"
+      },
+      "headline": true,
+      "key": "rate_male",
+      "source": "tables/dataset_summary.csv",
+      "value": 0.2416722745625841
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "<30",
+        "group_type": "age_group"
+      },
+      "headline": true,
+      "key": "n_age_lt30",
+      "source": "tables/dataset_summary.csv",
+      "value": 9618
+    },
+    {
+      "column": "default_rate",
+      "filters": {
+        "group": "<30",
+        "group_type": "age_group"
+      },
+      "headline": true,
+      "key": "rate_age_lt30",
+      "source": "tables/dataset_summary.csv",
+      "value": 0.22842586816385943
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "30-44",
+        "group_type": "age_group"
+      },
+      "headline": true,
+      "key": "n_age_30_44",
+      "source": "tables/dataset_summary.csv",
+      "value": 15096
+    },
+    {
+      "column": "default_rate",
+      "filters": {
+        "group": "30-44",
+        "group_type": "age_group"
+      },
+      "headline": true,
+      "key": "rate_age_30_44",
+      "source": "tables/dataset_summary.csv",
+      "value": 0.20833333333333334
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "45+",
+        "group_type": "age_group"
+      },
+      "headline": true,
+      "key": "n_age_45plus",
+      "source": "tables/dataset_summary.csv",
+      "value": 5286
+    },
+    {
+      "column": "default_rate",
+      "filters": {
+        "group": "45+",
+        "group_type": "age_group"
+      },
+      "headline": true,
+      "key": "rate_age_45plus",
+      "source": "tables/dataset_summary.csv",
+      "value": 0.24479757850926978
+    },
+    {
+      "column": "roc_auc",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_roc_auc",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.7285855136959406
+    },
+    {
+      "column": "f1",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_f1",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.523509811181044
+    },
+    {
+      "column": "accuracy",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_accuracy",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.7855
+    },
+    {
+      "column": "recall",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_recall",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.5327807083647325
+    },
+    {
+      "column": "precision",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_precision",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.5145560407569141
+    },
+    {
+      "column": "brier",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_brier",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.14415240530659224
+    },
+    {
+      "column": "threshold",
+      "filters": {
+        "feature_set": "full",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_full_threshold",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.27121488574842495
+    },
+    {
+      "column": "roc_auc",
+      "filters": {
+        "feature_set": "no_sex",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_no_sex_roc_auc",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.7269478127246084
+    },
+    {
+      "column": "f1",
+      "filters": {
+        "feature_set": "no_sex",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "perf_lr_no_sex_f1",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.5116780452748833
+    },
+    {
+      "column": "roc_auc",
+      "filters": {
+        "feature_set": "full",
+        "model": "tree"
+      },
+      "headline": true,
+      "key": "perf_tree_full_roc_auc",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.7896260984594435
+    },
+    {
+      "column": "f1",
+      "filters": {
+        "feature_set": "full",
+        "model": "tree"
+      },
+      "headline": true,
+      "key": "perf_tree_full_f1",
+      "source": "tables/baseline_performance.csv",
+      "value": 0.5580404685835996
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_dp_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.07553921252192586
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_dp_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.053583299305511145
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_dp_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.0975069500901993
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_eo_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.08179000925069385
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_eo_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.04966464941085012
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_eo_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.13266111918481013
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "dp_ratio",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_dp_ratio_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.9056866502053031
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "full",
+        "metric": "four_fifths_pass",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_sex_label_four_fifths_pass_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 1.0
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_dp_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.022248858601230936
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_dp_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.0035491153801502978
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_dp_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.04551367469219037
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_eo_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.026038390379278464
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_eo_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.004037696660135456
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_eo_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.07976233453847699
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "sex_label",
+        "feature_set": "no_sex",
+        "metric": "dp_ratio",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_sex_label_dp_ratio_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.9709602285212041
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "full",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_age_group_dp_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.09593047198010152
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "full",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_age_group_dp_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.06686660622348452
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "full",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_age_group_dp_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.1310481170857677
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "full",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_age_group_eo_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.11882588478429346
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "full",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_age_group_eo_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.07349754983856503
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "full",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_full_age_group_eo_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.19519243439177963
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "no_sex_no_age",
+        "metric": "dp_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_no_age_age_group_dp_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.04016056623927555
+    },
+    {
+      "column": "value",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "no_sex_no_age",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": true,
+      "key": "fair_lr_no_sex_no_age_age_group_eo_difference_value",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.08883363471971062
+    },
+    {
+      "column": "ci_low",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "no_sex_no_age",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": false,
+      "key": "fair_lr_no_sex_no_age_age_group_eo_difference_ci_low",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.031073896188376686
+    },
+    {
+      "column": "ci_high",
+      "filters": {
+        "attribute": "age_group",
+        "feature_set": "no_sex_no_age",
+        "metric": "eo_difference",
+        "model": "lr"
+      },
+      "headline": false,
+      "key": "fair_lr_no_sex_no_age_age_group_eo_difference_ci_high",
+      "source": "tables/fairness_baseline.csv",
+      "value": 0.16268602328527293
+    },
+    {
+      "column": "approval_rate",
+      "filters": {
+        "group": "female"
+      },
+      "headline": true,
+      "key": "approval_female",
+      "source": "tables/group_metrics_lr_full_sex_label.csv",
+      "value": 0.8009387078961899
+    },
+    {
+      "column": "approval_rate",
+      "filters": {
+        "group": "male"
+      },
+      "headline": true,
+      "key": "approval_male",
+      "source": "tables/group_metrics_lr_full_sex_label.csv",
+      "value": 0.7253994953742641
+    },
+    {
+      "column": "approval_rate",
+      "filters": {
+        "group": "<30"
+      },
+      "headline": true,
+      "key": "approval_age_lt30",
+      "source": "tables/group_metrics_lr_full_age_group.csv",
+      "value": 0.7789256198347108
+    },
+    {
+      "column": "approval_rate",
+      "filters": {
+        "group": "30-44"
+      },
+      "headline": true,
+      "key": "approval_age_30_44",
+      "source": "tables/group_metrics_lr_full_age_group.csv",
+      "value": 0.7919151756129887
+    },
+    {
+      "column": "approval_rate",
+      "filters": {
+        "group": "45+"
+      },
+      "headline": true,
+      "key": "approval_age_45plus",
+      "source": "tables/group_metrics_lr_full_age_group.csv",
+      "value": 0.6959847036328872
+    },
+    {
+      "column": "value",
+      "filters": {
+        "name": "model_auc",
+        "record_type": "auc",
+        "task": "sex_from_no_sex"
+      },
+      "headline": true,
+      "key": "sex_proxy_auc",
+      "source": "tables/proxy_analysis.csv",
+      "value": 0.5872712035922888
+    },
+    {
+      "column": "value",
+      "filters": {
+        "name": "model_auc",
+        "record_type": "auc",
+        "task": "age_young_from_no_sex_no_age"
+      },
+      "headline": true,
+      "key": "age_proxy_auc",
+      "source": "tables/proxy_analysis.csv",
+      "value": 0.8026048614726361
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_baseline_roc_auc_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.7287857210472191
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_baseline_roc_auc_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.008744687266097147
+    },
+    {
+      "column": "eo_mean",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_baseline_eo_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.06965389352627374
+    },
+    {
+      "column": "eo_std",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_baseline_eo_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.02222894745041765
+    },
+    {
+      "column": "dp_mean",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_baseline_dp_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.07264397446002704
+    },
+    {
+      "column": "dp_std",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_baseline_dp_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.01362633606337377
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_reweighed_roc_auc_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.7260619012425434
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_reweighed_roc_auc_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.008572273602952941
+    },
+    {
+      "column": "eo_mean",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_reweighed_eo_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.021368215085719074
+    },
+    {
+      "column": "eo_std",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_reweighed_eo_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.01232843573127128
+    },
+    {
+      "column": "dp_mean",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_reweighed_dp_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.006763283832132072
+    },
+    {
+      "column": "dp_std",
+      "filters": {
+        "feature_set": "full",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_full_sex_reweighed_dp_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.0045751998606622084
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_no_sex_sex_baseline_roc_auc_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.7275896857171931
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": false,
+      "key": "rw_lr_no_sex_sex_baseline_roc_auc_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.008616410923698208
+    },
+    {
+      "column": "eo_mean",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_no_sex_sex_baseline_eo_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.026418668022743685
+    },
+    {
+      "column": "eo_std",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "baseline",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": false,
+      "key": "rw_lr_no_sex_sex_baseline_eo_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.014652374036804871
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_no_sex_sex_reweighed_roc_auc_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.727609682262951
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": false,
+      "key": "rw_lr_no_sex_sex_reweighed_roc_auc_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.008649162618251468
+    },
+    {
+      "column": "eo_mean",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": true,
+      "key": "rw_lr_no_sex_sex_reweighed_eo_mean",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.025327345579310746
+    },
+    {
+      "column": "eo_std",
+      "filters": {
+        "feature_set": "no_sex",
+        "mitigation": "reweighed",
+        "model": "lr",
+        "protected_attribute": "sex"
+      },
+      "headline": false,
+      "key": "rw_lr_no_sex_sex_reweighed_eo_std",
+      "source": "tables/reweighing_tradeoff.csv",
+      "value": 0.013575404546967262
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "epsilon": "inf",
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_inf_roc_auc_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.7303428875431358
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "epsilon": "inf",
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_inf_roc_auc_std",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.008408913470771396
+    },
+    {
+      "column": "eo_difference_sex_mean",
+      "filters": {
+        "epsilon": "inf",
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_inf_eo_difference_sex_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.020835626982977418
+    },
+    {
+      "column": "eo_difference_sex_std",
+      "filters": {
+        "epsilon": "inf",
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": false,
+      "key": "dp_inf_eo_difference_sex_std",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.011583596222642979
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_roc_auc_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.5710722550991594
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": false,
+      "key": "dp_0.01_roc_auc_std",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.05786600916963958
+    },
+    {
+      "column": "eo_difference_sex_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_eo_difference_sex_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.041338249236983926
+    },
+    {
+      "column": "eo_difference_sex_std",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": false,
+      "key": "dp_0.01_eo_difference_sex_std",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.03711195736272636
+    },
+    {
+      "column": "dp_difference_sex_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_dp_difference_sex_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.038391614253254526
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "epsilon": 10.0,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_10_roc_auc_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.7285292169691333
+    },
+    {
+      "column": "roc_auc_std",
+      "filters": {
+        "epsilon": 10.0,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": false,
+      "key": "dp_10_roc_auc_std",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.010920761550337789
+    },
+    {
+      "column": "eo_difference_sex_mean",
+      "filters": {
+        "epsilon": 10.0,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_10_eo_difference_sex_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.027326255569211578
+    },
+    {
+      "column": "shap_spearman_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_shap_spearman_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.16837944664031623
+    },
+    {
+      "column": "shap_jaccard_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_shap_jaccard_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.3380952380952381
+    },
+    {
+      "column": "shap_spearman_mean",
+      "filters": {
+        "epsilon": 10.0,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_10_shap_spearman_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.7605872388481085
+    },
+    {
+      "column": "shap_jaccard_mean",
+      "filters": {
+        "epsilon": 10.0,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_10_shap_jaccard_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.6456876456876457
+    },
+    {
+      "column": "auc__sex_label__female_mean",
+      "filters": {
+        "epsilon": "inf",
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_inf_auc__sex_label__female_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.7229999955327331
+    },
+    {
+      "column": "auc__sex_label__female_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_auc__sex_label__female_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.5681398246808156
+    },
+    {
+      "column": "auc__sex_label__male_mean",
+      "filters": {
+        "epsilon": "inf",
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_inf_auc__sex_label__male_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.7380078865006672
+    },
+    {
+      "column": "auc__sex_label__male_mean",
+      "filters": {
+        "epsilon": 0.01,
+        "feature_set": "no_sex",
+        "model": "lr",
+        "reweighed": false
+      },
+      "headline": true,
+      "key": "dp_0.01_auc__sex_label__male_mean",
+      "source": "tables/dp_sweep_summary.csv",
+      "value": 0.5724298098331796
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "female",
+        "group_type": "sex"
+      },
+      "headline": false,
+      "key": "n_female",
+      "source": "tables/dataset_summary.csv",
+      "value": 18112
+    },
+    {
+      "column": "n",
+      "filters": {
+        "group": "male",
+        "group_type": "sex"
+      },
+      "headline": false,
+      "key": "n_male",
+      "source": "tables/dataset_summary.csv",
+      "value": 11888
+    },
+    {
+      "column": "roc_auc_mean",
+      "filters": {
+        "row": 0
+      },
+      "headline": true,
+      "key": "recommended_auc",
+      "source": "tables/recommended_config.csv",
+      "value": 0.7289917660997592
+    },
+    {
+      "column": "eo_difference_sex_mean",
+      "filters": {
+        "row": 0
+      },
+      "headline": true,
+      "key": "recommended_eo",
+      "source": "tables/recommended_config.csv",
+      "value": 0.06051604445399798
+    },
+    {
+      "column": "spearman",
+      "filters": {
+        "comparison": "baseline_vs_reweigh_sex"
+      },
+      "headline": true,
+      "key": "shap_reweigh_spearman",
+      "source": "tables/shap_stability.csv",
+      "value": 0.9861660079051384
+    },
+    {
+      "column": "spearman",
+      "filters": {
+        "comparison": "full_vs_no_sex"
+      },
+      "headline": true,
+      "key": "shap_full_nosex_spearman",
+      "source": "tables/shap_stability.csv",
+      "value": 0.9977413890457371
+    }
+  ]
+}

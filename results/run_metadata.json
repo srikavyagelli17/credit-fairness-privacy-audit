@@ -1,0 +1,44 @@
+{
+  "argv": [
+    "/Users/meghashyam/Desktop/253/credit-fairness-audit/src/run_all.py"
+  ],
+  "config_hash": "6249e877ea37c1095dc589ffcd10d8bfc50e19eaaa93ec3bc06d5c40978cd152",
+  "config_path": "/Users/meghashyam/Desktop/253/credit-fairness-audit/configs/config.yaml",
+  "fast": false,
+  "git_hash": null,
+  "packages": {
+    "diffprivlib": "0.6.6",
+    "fairlearn": "0.15.0",
+    "matplotlib": "3.11.2",
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "seaborn": "0.13.2",
+    "shap": "0.51.0",
+    "xgboost": "3.2.0"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "runtime_seconds": 66.21088758399856,
+  "sample": null,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "stage": "all",
+  "stage_seconds": {
+    "audit": 13.745226957998966,
+    "baseline": 1.1275450409993937,
+    "card": 0.058392999999341555,
+    "data": 0.23279054099839414,
+    "dp": 15.818267165999714,
+    "explain": 3.4018455839977833,
+    "governance": 0.1486331660016731,
+    "reweigh": 31.505551958001888
+  },
+  "timestamp_utc": "2026-11-25T20:35:33.056335+00:00"
+}

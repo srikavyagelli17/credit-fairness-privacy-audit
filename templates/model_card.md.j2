@@ -1,0 +1,98 @@
+# Model card: credit default probability
+
+Format follows Mitchell et al. (2019), "Model Cards for Model Reporting." Every quantitative statement below is filled from `results/tables/` by `python -m src.run_all`. This card describes a research model. It is not a lending policy and it is not a conformity assessment.
+
+{{ run_note }}
+
+## Model details
+
+- Models: L2 logistic regression (primary) and an XGBoost classifier with fixed hyperparameters from `configs/config.yaml`. Differentially private logistic regression uses IBM diffprivlib.
+- Training objective: probability of default next month. The positive class is default (`default = 1`).
+- Decision rule: the threshold maximizes F1 of the default class on the validation split, separately for each fitted model. The primary full-feature logistic threshold is stated in the results paragraph below.
+- Recommended configuration selected by the written rule `smallest_epsilon_within_auc_tolerance_and_eo_no_worse`: {{ recommended_text }}
+- License and contact: course research project. No deployer is identified because the model is not released for use.
+
+## Intended use
+
+The model is intended for a graduate audit of fairness, explanation, and privacy on a public credit-default dataset, including a comparison with the questions raised by the New York Department of Financial Services Apple Card investigation.
+
+Out of scope:
+
+- Deciding whether a person receives credit, a credit limit, or a price.
+- Any production underwriting, marketing, or collection system.
+- Use outside the population and period represented by this dataset.
+- Compliance sign-off under the EU AI Act or fair-lending law.
+
+## Factors
+
+The audit treats recorded sex and age as the relevant factors. Sex in the source file is a binary code (1 male, 2 female). Age is grouped as under 30, 30–44, and 45 and older, and a binary under-30 attribute is used for reweighing. Education and marriage are model inputs. The no-sex feature set is the fairness-through-unawareness comparison. The no-sex-no-age feature set removes both attributes.
+
+## Metrics
+
+- Performance: accuracy, balanced accuracy, ROC-AUC, PR-AUC, precision, recall, F1, and Brier score. The positive class is default.
+- Favorable decision for demographic parity: approval, defined as predicted non-default.
+- Equalized odds: the larger of the true-positive-rate gap and the false-positive-rate gap for the default class.
+- Uncertainty: percentile bootstrap intervals on the primary test split for the baseline audit, and mean ± sample standard deviation across seeds for reweighing and differential privacy.
+- Explanation: mean absolute SHAP, Spearman rank correlation, top-k Jaccard overlap, and mean cosine similarity.
+- Privacy: the epsilon argument of diffprivlib's logistic regression, which is not an end-to-end guarantee once preprocessing is included.
+
+## Evaluation data
+
+{{ run_note }}
+
+The evaluation split is 20% of the modeling frame, stratified on default × sex. The validation split, also 20%, is used only to choose the F1 threshold. Test labels are not used to fit the preprocessor, the model, the reweighing weights, or the threshold.
+
+## Training data
+
+UCI Default of Credit Card Clients (Yeh and Lien 2009): 30,000 Taiwanese credit-card clients observed in 2005, when the full file is used. Default is the recorded payment outcome, not a credit-limit decision. Education codes 0, 5, and 6 are mapped to 4 (other). Marriage code 0 is mapped to 3 (other). `PAY_0` is kept because the source schema has no `PAY_1`.
+
+{{ dataset_table }}
+
+## Quantitative analyses
+
+### Overall performance
+
+{{ rq1 }}
+
+{{ baseline_table }}
+
+### Group gaps
+
+{{ fairness_table }}
+
+### Reweighing
+
+{{ rq2 }}
+
+{{ reweigh_table }}
+
+### Explanations
+
+{{ shap_sentence }}
+
+Individual reason lists:
+
+{{ local_explanations }}
+
+### Differential privacy and the recommended setting
+
+{{ rq3 }}
+
+{{ dp_table }}
+
+## Ethical considerations
+
+Credit decisions affect access to payments and liquidity. A default model is only a proxy for the Apple Card setting, which was about credit limits offered to applicants, not about observed default in Taiwan in 2005. Sex is recorded as a binary administrative code and does not represent gender identity. Fairness metrics can conflict: equalizing one conditional error rate can move another (Chouldechova 2017; Kleinberg, Mullainathan, and Raghavan 2017). Demographic parity and equalized odds are both reported so that conflict stays visible. Differential privacy can change group accuracy; the per-group AUC curves are the measurement of that possibility, not an assumption about its direction.
+
+The favorable outcome used for parity is being predicted not to default. That is a research definition of approval. It is not a statement that a low default score should be treated as a credit offer.
+
+## Caveats and recommendations
+
+- Single institution, one country (Taiwan), calendar period 2005.
+- Sex is recorded as binary.
+- The dataset records default outcomes, not credit-limit decisions. It is a proxy setting for the questions in the Apple Card investigation, not a reconstruction of that portfolio.
+- Fairness metrics can conflict. Improving demographic parity does not imply improving equalized odds, and the reverse is also true.
+- diffprivlib scaler-bound caveat: {{ scaler_limitation }}
+- Do not use the recommended epsilon, the threshold, or the reweighing weights outside this study. If the same measurement pipeline is repeated on a new window, the monitoring margins in the governance mapping are the review triggers, not an authorization to deploy.
+
+Config hash: `{{ config_hash }}`.

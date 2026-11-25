@@ -1,0 +1,21 @@
+# Governance mapping: credit-default audit
+
+This mapping connects measurements from this run to the EU AI Act and the NIST AI Risk Management Framework 1.0. It is a research exercise, not a legal opinion and not a conformity assessment.
+
+Wording was checked against the consolidated text of Regulation (EU) 2024/1689 as at 27 July 2026. Annex III, point 5(b) lists systems that evaluate the creditworthiness of natural persons or establish their credit score as high-risk, with an exception for fraud detection. Article 9 requires a lifecycle risk-management system. Article 10(2)(f) and (g) require examination of biases and measures to detect, prevent, and mitigate them. In that consolidated text, processing of special categories of personal data for bias detection and correction is Article 4a. That is the rule which appeared as Article 10(5) in the original text of the Regulation. Article 11 and Annex IV cover technical documentation, Article 12 record-keeping, Article 13 transparency to deployers, Article 14 human oversight, Article 15 accuracy, robustness, and cybersecurity, and Article 86 the right to an explanation of an individual decision taken on the basis of an Annex III system.
+
+NIST AI RMF 1.0 organizes the work as Govern (cross-cutting accountability), Map (context and risks), Measure (analysis), and Manage (treatment and monitoring).
+
+{{ run_note }}
+
+Config hash: `{{ config_hash }}`.
+
+| Measured risk | Evidence from this run | EU AI Act obligation | NIST AI RMF | Control implemented | Residual risk |
+| --- | --- | --- | --- | --- | --- |
+{% for row in risks -%}
+| {{ row.risk }} | {{ row.evidence }} | {{ row.law }} | {{ row.nist }} | {{ row.control }} | {{ row.residual }} |
+{% endfor %}
+
+Monitoring plan used as the Manage control: recompute demographic parity and equalized odds on a later window with the same definitions. Review the model if the sex equalized-odds difference exceeds the recorded baseline by more than {{ monitoring_eo }}, or if ROC-AUC falls by more than {{ monitoring_auc }}. Those margins are configuration values, not measured performance.
+
+Scaler and accountant limitation, copied from configuration: {{ scaler_limitation }}

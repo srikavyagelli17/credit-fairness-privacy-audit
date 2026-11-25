@@ -1,0 +1,123 @@
+# Auditing Fairness, Explainability, and Privacy in Credit Default Prediction
+
+Lessons from the Apple Card case, studied on the UCI Default of Credit Card Clients dataset (Yeh and Lien 2009): 30,000 Taiwanese cardholders observed in 2005, with a default rate near 22% on the full file. The New York Department of Financial Services investigated allegations that Apple Card credit limits, underwritten by Goldman Sachs, differed by sex. The Department did not find unlawful discrimination and did find failures of explanation and customer service. This project asks the corresponding measurement questions on a public default dataset. It does not re-adjudicate that investigation and it does not score applicants.
+
+{{ run_note }}
+
+## Research questions
+
+1. Does the model produce measurable disparities by sex and age, including after the sex attribute is removed?
+2. How much does reweighing reduce those disparities, and at what cost to predictive performance?
+3. How does differential privacy affect accuracy, group fairness, and the stability of SHAP explanations?
+
+## Setup
+
+Python 3.11 is the interpreter this project is tested with. From the repository root:
+
+```bash
+make install
+make all
+```
+
+`make fast` runs a smaller epsilon grid, fewer seeds, and fewer bootstrap resamples. `make test` runs the unit tests and a 2,000-row smoke test. `make data` only builds the cleaned dataset and the summary tables.
+
+One command reproduces the study:
+
+```bash
+python -m src.run_all
+```
+
+Useful flags: `--stage {data,baseline,audit,reweigh,explain,dp,governance,card,all}`, `--seeds N`, `--sample N`, `--fast`.
+
+diffprivlib 0.6.6 does not import on scikit-learn 1.9 until two symbols are patched (`sklearn.tree._tree.DOUBLE` and the removed `multi_class` argument). `src/compat.py` applies those patches before constructing the private logistic regression. The logistic mechanism itself is the library's objective perturbation.
+
+All experiment settings, including seeds, the epsilon grid, the F1 threshold rule, clipping bounds, and the recommendation rule, are in `configs/config.yaml`.
+
+## Repository map
+
+```text
+credit-fairness-audit/
+├── configs/config.yaml
+├── src/                  # data, models, audit, reweighing, SHAP, privacy, documents
+├── templates/            # Jinja templates filled only from results/
+├── results/tables/       # CSV and Markdown tables
+├── results/figures/      # PNG figures at 300 dpi
+├── results/models/       # joblib bundles
+├── docs/model_card.md
+├── docs/governance_mapping.md
+├── notebooks/01_walkthrough.ipynb
+└── tests/
+```
+
+## Results
+
+### RQ1. Disparities by sex and age, including after sex is removed
+
+{{ rq1 }}
+
+![Approval rate by sex]({{ figure_prefix }}/approval_rate_by_sex.png)
+
+![Approval rate by age]({{ figure_prefix }}/approval_rate_by_age.png)
+
+![True and false positive rates by sex]({{ figure_prefix }}/tpr_fpr_by_sex.png)
+
+![Proxy features for sex]({{ figure_prefix }}/proxy_features_sex.png)
+
+{{ dataset_table }}
+
+{{ baseline_table }}
+
+{{ fairness_table }}
+
+### RQ2. Reweighing
+
+{{ rq2 }}
+
+![Fairness-accuracy trade-off]({{ figure_prefix }}/fairness_accuracy_tradeoff.png)
+
+{{ reweigh_table }}
+
+### RQ3. Differential privacy
+
+{{ rq3 }}
+
+{{ shap_sentence }}
+
+![ROC-AUC against epsilon]({{ figure_prefix }}/dp_auc_vs_epsilon.png)
+
+![Fairness gaps against epsilon]({{ figure_prefix }}/dp_fairness_vs_epsilon.png)
+
+![Per-group ROC-AUC against epsilon]({{ figure_prefix }}/dp_group_auc_vs_epsilon.png)
+
+![SHAP stability against epsilon]({{ figure_prefix }}/dp_shap_stability_vs_epsilon.png)
+
+![SHAP rank heatmap]({{ figure_prefix }}/dp_shap_rank_heatmap.png)
+
+{{ dp_table }}
+
+Individual explanations:
+
+{{ local_explanations }}
+
+## Limitations
+
+- Single institution, one country, 2005.
+- Sex is recorded as binary.
+- The outcome is default, not a credit-limit decision. The Apple Card analogy is about the audit questions (unawareness, proxies, and missing explanations), not about the same population or the same decision.
+- Fairness metrics can conflict (Chouldechova 2017; Kleinberg, Mullainathan, and Raghavan 2017).
+- The differential-privacy epsilon does not cover the scaler fitted on the training split, and reweighing inside the privacy sweep is implemented by resampling because diffprivlib ignores `sample_weight`. Phase 4 is the direct sample-weight result. {{ scaler_limitation }}
+
+## References
+
+1. European Union. Regulation (EU) 2024/1689 of 13 June 2024 (Artificial Intelligence Act). Consolidated text as at 27 July 2026, consulted for article wording. Official Journal of the European Union.
+2. New York State Department of Financial Services. *Report on Apple Card Investigation*. March 2021. https://www.dfs.ny.gov/system/files/documents/2021/03/rpt_202103_apple_card_investigation.pdf
+3. National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*. NIST AI 100-1. January 2023.
+4. Kozodoi, N., Jacob, J., and Lessmann, S. (2022). Fairness in credit scoring: Assessment, implementation and profit implications. *European Journal of Operational Research*, 297(3), 1083–1094.
+5. Bagdasaryan, E., Poursaeed, O., and Shmatikov, V. (2019). Differential Privacy Has Disparate Impact on Model Accuracy. *Advances in Neural Information Processing Systems*.
+6. Yeh, I.-C., and Lien, C.-H. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. *Expert Systems with Applications*, 36(2), 2473–2480.
+7. Hardt, M., Price, E., and Srebro, N. (2016). Equality of Opportunity in Supervised Learning. *Advances in Neural Information Processing Systems*.
+8. Kamiran, F., and Calders, T. (2012). Data preprocessing techniques for classification without discrimination. *Knowledge and Information Systems*, 33(1), 1–33.
+9. Lundberg, S. M., and Lee, S.-I. (2017). A Unified Approach to Interpreting Model Predictions. *Advances in Neural Information Processing Systems*.
+10. Dwork, C., and Roth, A. (2014). The Algorithmic Foundations of Differential Privacy. *Foundations and Trends in Theoretical Computer Science*, 9(3–4), 211–407.
+
+Additional sources for the card format and the impossibility caveat: Mitchell, M., et al. (2019). Model Cards for Model Reporting. *Proceedings of the Conference on Fairness, Accountability, and Transparency*. Chouldechova, A. (2017). Fair prediction with disparate impact: A study of bias in recidivism prediction instruments. *Big Data*, 5(2), 153–163. Kleinberg, J., Mullainathan, S., and Raghavan, M. (2017). Inherent Trade-Offs in the Fair Determination of Risk Scores. *Innovations in Theoretical Computer Science*.

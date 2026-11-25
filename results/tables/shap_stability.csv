@@ -1,0 +1,3 @@
+spearman,jaccard_topk,mean_cosine,n_shared,comparison
+0.9861660079051384,1.0,0.9771686072458511,23.0,baseline_vs_reweigh_sex
+0.9977413890457371,1.0,0.9996192245740716,22.0,full_vs_no_sex
